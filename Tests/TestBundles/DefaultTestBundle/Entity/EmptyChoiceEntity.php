@@ -38,6 +38,14 @@ class EmptyChoiceEntity
      */
     private $countries;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="continent", type="string", length=255)
+     * @Assert\NotBlank(message="continent_message")
+     */
+    private $continent;
+
 
     /**
      * Get id
@@ -94,6 +102,23 @@ class EmptyChoiceEntity
     {
         $this->countries = $countries;
 
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContinent() {
+        return $this->continent;
+    }
+
+    /**
+     * @param string $continent
+     *
+     * @return EmptyChoiceEntity
+     */
+    public function setContinent($continent) {
+        $this->continent = $continent;
         return $this;
     }
 }
